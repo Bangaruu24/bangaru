@@ -1,0 +1,230 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Grocery Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+   
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <a class="navbar-brand">Grocery App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                {% if user.is_authenticated %}
+                    <li style="color: red; font-family: Bradley Hand ITC; font-weight: bold; font-size: 30px;">
+                        Welcome {{user.username}}
+                    </li>    
+        
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">            
+                <li><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                <li><a class="nav-link" href="{% url 'add_to_order' %}">MY Orders</a></li>
+                <li><a class="nav-link" href="{% url 'add_to_cart' %}">MY Cart</a></li>
+                {% endif %}
+                <li><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                <li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    </nav>
+
+
+  <!-- Carousel -->
+  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+    </div>
+
+<div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="{% static "/images/milkproduct1.jpg" %}" alt="" class="d-block w-100" height="400">
+    </div>
+    <div class="carousel-item">
+        <img src="{% static "/images/milkproduct3.jpg" %}" alt="" class="d-block w-100" height="400">
+    </div>
+    <div class="carousel-item">
+        <img src="{% static "/images/milkproducts2.jpg" %}" alt="" class="d-block w-100" height="400">
+    </div>
+    <div class="carousel-item">
+        <img src="{% static "/images/milkproducts4.jpg" %}" alt="" class="d-block w-100" height="400">
+    </div>
+</div>
+<!-- Left and right controls/icons -->
+<button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+</button>
+</div>
+
+
+
+<div class="container mt-4">
+
+    <div class="row">
+
+        <div class="card col-sm-4 text-center">
+            
+            <img src = "{% static '/image/blueberry.jpg' %}" alt="Product 1" class="img-fluid template" style="height: 350px;">
+            <h3 style="color: darkorchid;">Blueberry</h3>
+            <p class="price"><b>Price : 400.00 </b></p>
+            <button class="btn btn-outline-warning" onclick="addToCart('Blueberry', 400.00)">Add to Cart</button>
+            <button class="btn btn-outline-success" onclick="placeOrder('Blueberry', 400.00)">Order Now</button>
+
+        </div>
+
+
+
+        <div class="card col-sm-4 text-center">
+            
+            <img src = "{% static '/image/coffee.jpg' %}" alt="Product 2" class="img-fluid template" style="height: 350px;">
+            <h3 style="color: darkorchid;">Coffee</h3>
+            <p class="price"><b>Price : 100.00 </b></p>
+            <button class="btn btn-outline-warning" onclick="addToCart('Coffee', 100.00)">Add to Cart</button>
+            <button class="btn btn-outline-success" onclick="placeOrder('Coffee', 100.00)">Order Now</button>
+
+        </div>
+
+        <div class=" card col-sm-4 text-center">
+            
+            <img src = "{% static '/image/curd1.jpeg' %}" alt="Product 3" class="img-fluid template" style="height: 350px;">
+            <h3 style="color: darkorchid;">Curd</h3>
+            <p class="price"><b>Price : 100.00 </b></p>
+            <button class="btn btn-outline-warning" onclick="addToCart('Curd', 100.00)">Add to Cart</button>
+            <button class="btn btn-outline-success" onclick="placeOrder('Curd', 100.00)">Order Now</button>
+
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class='row'>
+        <div class=" card col-sm-4 text-center">
+            
+            <img src = "{% static '/image/strawberry.jpg' %}" alt="Product 4" class="img-fluid template" style="height: 350px;">
+            <h3 style="color: darkorchid;">Strawberry</h3>
+            <p class="price"><b>Price : 200.00 </b></p>
+            <button class="btn btn-outline-warning" onclick="addToCart('Strawberry', 200.00)">Add to Cart</button>
+            <button class="btn btn-outline-success" onclick="placeOrder('Strawberry', 200.00)">Order Now</button>
+
+        </div>
+
+        <div class=" card col-sm-4 text-center">
+            
+            <img src = "{% static '/image/veneela cream.jpg' %}" alt="Product 5" class="img-fluid template" style="height: 350px;">
+            <h3 style="color: darkorchid;">Veneela</h3>
+            <p class="price"><b>Price : 200.00 </b></p>
+            <button class="btn btn-outline-warning" onclick="addToCart('Veneela', 250.00)">Add to Cart</button>
+            <button class="btn btn-outline-success" onclick="placeOrder('Veneela', 250.00)">Order Now</button>
+
+        </div>
+
+        <div class=" card col-sm-4 text-center">
+            
+            <img src = "{% static '/image/tonemilk.png' %}" alt="Product 5" class="img-fluid card" style="height: 350px;">
+            <h3 style="color: darkorchid;">Milk</h3>
+            <p class="price"><b>Price : 100.00 </b></p>
+            <button class="btn btn-outline-warning" onclick="addToCart('Milk', 100.00)">Add to Cart</button>
+            <button class="btn btn-outline-success" onclick="placeOrder('Milk', 100.00)">Order Now</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+        
+
+
+
+
+
+     <script>
+
+   function addToCart(productName, Price) {
+    // Create an object representing the product
+    var product = {
+        name: productName,
+        price: Price
+    };
+
+    // Get the existing cart items from local storage (assuming you're using local storage)
+    var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Add the current product to the cart
+    cartItems.push(product);
+
+    // Save the updated cart back to local storage
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+
+  }
+
+  function calculateTotalPrice1(cartItems) {
+    // Calculate the total price of all items in the cart
+    var total = 0;
+    for (var i = 0; i < cartItems.length; i++) {
+        total += cartItems[i].price;
+    }
+    return total;
+ }
+
+
+  function placeOrder(product, Price) {
+    // Create an order object
+    const order = {
+        product: product,
+        price: Price,
+    };
+
+    // Retrieve existing orders from local storage or initialize an empty array
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+    // Add the new order to the array
+    orders.push(order);
+
+    // Save the updated orders array back to local storage
+    localStorage.setItem('orders', JSON.stringify(orders));
+
+    
+    // Display a confirmation message with the total price
+   
+  }
+
+   function calculateTotalPrice2(orders) {
+    // Calculate the total price of all items in the orders, considering quantity
+    var total = 0;
+    for (var i = 0; i < orders.length; i++) {
+        total += orders[i].price ;
+    }
+    return total;
+  }
+
+
+        
+    </script>
+
+{% endblock %}
+
+</body>
+</html>
+
+
+
+
+
