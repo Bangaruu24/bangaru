@@ -43,12 +43,19 @@
         </div>
     </nav>
     
-    <h1 style='text-align:center'>Your Order History</h1><br>
-   
-        <div id="orders-list"></div>
-        <p>Total Price: <span id="total-price">0.00</span></p>
+
+<div class='container'>
+    <div class="border rounded p-4 m-4">
     
-        <script>
+        <h1 class="display-6 pl-4 ml-4 btn btn-success rounded-pill" >Your Order History</h1>
+    <hr>
+    
+    <div id="orders-list"></div>
+    <br>
+    <p>Total Price: <span id="total-price">0.00</span></p>
+    </hr>
+    
+  <script>
     // Retrieve orders from local storage
     let orders = [];
     try {
@@ -97,12 +104,13 @@
 
         // Display total price
         totalPriceSpan.textContent = totalPrice.toFixed(2);
-    }
-</script>
+       }
+   </script>
 
         
 
 
-
+    </div>
+</div>
 </body>
 </html>
