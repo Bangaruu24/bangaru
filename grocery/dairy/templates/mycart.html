@@ -41,14 +41,18 @@
        
     </nav>
 
-   <h1 class="text-center" >YOUR CART ITEMS</h1>
+<div class='container'>
+    <div class="border rounded p-4 m-4">
 
+       <p class="display-4 pl-4 ml-4 btn btn-success rounded-pill" >YOUR CART ITEMS</p>
+       <hr>
     <div id="cart-items"></div>
     
     <br>
-
     <p id="total-price">Total Price: </p>
+    
 
+  
     <script>
         // Retrieve cart items from local storage
         var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
@@ -106,7 +110,8 @@
     </script>
     
 
-    
+    </div>
+</div>
 </body>
 </html>
 
