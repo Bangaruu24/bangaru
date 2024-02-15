@@ -9,34 +9,39 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    
     
    
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-success">
-        <a class="navbar-brand">Grocery App</a>
+        <a class="navbar-brand"><img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png" style="width:50px;height:50px,color:text-light;">Grocery App</a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav justify-content-center">
                 {% if user.is_authenticated %}
                     <li style="color: red; font-family: Bradley Hand ITC; font-weight: bold; font-size: 30px;">
-                        Welcome {{user.username}}
+                        Welcome  {{user.username}} 
                     </li>    
-        
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">            
+                {% endif %}
+                </ul>
+        </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">  
+                <ul class ="navbar-nav justify-content-end">          
                 <li><a class="nav-link" href="{% url 'home' %}">Home</a></li>
                 <li><a class="nav-link" href="{% url 'add_to_order' %}">MY Orders</a></li>
                 <li><a class="nav-link" href="{% url 'add_to_cart' %}">MY Cart</a></li>
-                {% endif %}
                 <li><a class="nav-link" href="{% url 'login' %}">Login</a></li>
                 <li><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
-            </ul>
-        </div>
-    </div>
+                </ul>
+            </div>
     </nav>
 
 
@@ -82,10 +87,10 @@
         <div class="card col-sm-4 text-center">
             
             <img src = "{% static '/image/blueberry.jpg' %}" alt="Product 1" class="img-fluid template" style="height: 350px;">
-            <h3 style="color: darkorchid;">Blueberry</h3>
+            <h3 style="color: salmon;">Blueberry</h3>
             <p class="price"><b>Price : 400.00 </b></p>
-            <button class="btn btn-outline-warning" onclick="addToCart('Blueberry', 400.00)">Add to Cart</button>
-            <button class="btn btn-outline-success" onclick="placeOrder('Blueberry', 400.00)">Order Now</button>
+            <button type = "button" class="btn btn-outline-warning" onclick="addToCart('Blueberry', 400.00)">Add to Cart</button>
+            <button type = "button" class="btn btn-outline-success" onclick="placeOrder('Blueberry', 400.00)">Order Now</button>
 
         </div>
 
@@ -94,20 +99,20 @@
         <div class="card col-sm-4 text-center">
             
             <img src = "{% static '/image/coffee.jpg' %}" alt="Product 2" class="img-fluid template" style="height: 350px;">
-            <h3 style="color: darkorchid;">Coffee</h3>
+            <h3 style="color: salmon;">Coffee</h3>
             <p class="price"><b>Price : 100.00 </b></p>
-            <button class="btn btn-outline-warning" onclick="addToCart('Coffee', 100.00)">Add to Cart</button>
-            <button class="btn btn-outline-success" onclick="placeOrder('Coffee', 100.00)">Order Now</button>
+            <button type = "button" class="btn btn-outline-warning" onclick="addToCart('Coffee', 100.00)">Add to Cart</button>
+            <button type = "button" class="btn btn-outline-success" onclick="placeOrder('Coffee', 100.00)">Order Now</button>
 
         </div>
 
         <div class=" card col-sm-4 text-center">
             
             <img src = "{% static '/image/curd1.jpeg' %}" alt="Product 3" class="img-fluid template" style="height: 350px;">
-            <h3 style="color: darkorchid;">Curd</h3>
+            <h3 style="color: salmon;">Curd</h3>
             <p class="price"><b>Price : 100.00 </b></p>
-            <button class="btn btn-outline-warning" onclick="addToCart('Curd', 100.00)">Add to Cart</button>
-            <button class="btn btn-outline-success" onclick="placeOrder('Curd', 100.00)">Order Now</button>
+            <button type = "button" class="btn btn-outline-warning" onclick="addToCart('Curd', 100.00)">Add to Cart</button>
+            <button type = "button" class="btn btn-outline-success" onclick="placeOrder('Curd', 100.00)">Order Now</button>
 
         </div>
     </div>
@@ -118,30 +123,30 @@
         <div class=" card col-sm-4 text-center">
             
             <img src = "{% static '/image/strawberry.jpg' %}" alt="Product 4" class="img-fluid template" style="height: 350px;">
-            <h3 style="color: darkorchid;">Strawberry</h3>
+            <h3 style="color: salmon;">Strawberry</h3>
             <p class="price"><b>Price : 200.00 </b></p>
-            <button class="btn btn-outline-warning" onclick="addToCart('Strawberry', 200.00)">Add to Cart</button>
-            <button class="btn btn-outline-success" onclick="placeOrder('Strawberry', 200.00)">Order Now</button>
+            <button type = "button" class="btn btn-outline-warning" onclick="addToCart('Strawberry', 200.00)">Add to Cart</button>
+            <button type = "button" class="btn btn-outline-success" onclick="placeOrder('Strawberry', 200.00)">Order Now</button>
 
         </div>
 
         <div class=" card col-sm-4 text-center">
             
             <img src = "{% static '/image/veneela cream.jpg' %}" alt="Product 5" class="img-fluid template" style="height: 350px;">
-            <h3 style="color: darkorchid;">Veneela</h3>
+            <h3 style="color: salmon;">Veneela</h3>
             <p class="price"><b>Price : 200.00 </b></p>
-            <button class="btn btn-outline-warning" onclick="addToCart('Veneela', 250.00)">Add to Cart</button>
-            <button class="btn btn-outline-success" onclick="placeOrder('Veneela', 250.00)">Order Now</button>
+            <button type = "button" class="btn btn-outline-warning" onclick="addToCart('Veneela', 250.00)">Add to Cart</button>
+            <button type = "button" class="btn btn-outline-success" onclick="placeOrder('Veneela', 250.00)">Order Now</button>
 
         </div>
 
         <div class=" card col-sm-4 text-center">
             
             <img src = "{% static '/image/tonemilk.png' %}" alt="Product 5" class="img-fluid card" style="height: 350px;">
-            <h3 style="color: darkorchid;">Milk</h3>
+            <h3 style="color: salmon;">Milk</h3>
             <p class="price"><b>Price : 100.00 </b></p>
-            <button class="btn btn-outline-warning" onclick="addToCart('Milk', 100.00)">Add to Cart</button>
-            <button class="btn btn-outline-success" onclick="placeOrder('Milk', 100.00)">Order Now</button>
+            <button type ="button" class="btn btn-outline-warning" onclick="addToCart('Milk', 100.00)">Add to Cart</button>
+            <button  type ="button" class="btn btn-outline-success" onclick="placeOrder('Milk', 100.00)">Order Now</button>
 
         </div>
     </div>
